@@ -1,0 +1,17 @@
+<div class="center">
+    <div class="container">
+          <ul>
+          <% @letters.each do |letter| %>
+            <li><%= letter %></li>
+          <% end %>
+
+          </ul>
+          <form action="/result" method="post" data-turbo="false">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <%= hidden_field_tag :letters, @letters %>
+            <%= hidden_field_tag :time, @time %>
+            <input type="text" name="word">
+            <input type="submit">
+          </form>
+    </div>
+</div>
